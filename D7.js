@@ -292,12 +292,40 @@ console.log(arrayNuovoMillen);
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
-// let  sommaAnni = [];
-// sommaAnni = movies.
+// Funzione per calcolare la somma degli anni di produzione dei film
+function sommaAnniDiProduzione(arrayDiFilm) {
+  // Utilizziamo reduce per accumulare la somma degli anni
+  let sommaAnni = arrayDiFilm.reduce(function (acc, film) {
+    // Convertiamo l'anno da stringa a numero intero con parseInt
+    let anno = parseInt(film.Year);
+
+    // Aggiungiamo l'anno corrente all'accumulatore
+    return acc + anno;
+  }, 0); // L'argomento 0 è il valore iniziale dell'accumulatore
+
+  // Restituiamo la somma totale degli anni
+  return sommaAnni;
+}
+
+let risultato = sommaAnniDiProduzione(movies);
+console.log(risultato);
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+
+// viene chiamata la funzione getMovieById con un IMDb ID specifico. Se il film viene trovato, viene stampato il titolo del film.
+// In caso contrario, viene stampato un messaggio indicando che nessun film è stato trovato con l'IMDb ID specificato.
+
+// da finire
+
+function getMovieById(imdbID) {
+  // Utilizziamo il metodo find sull'array movies per trovare il film con l'IMDb ID corrispondente.
+  const selectedMovie = movies.find((movie) => movie.imdbID === imdbID);
+
+  // Se il film viene trovato, restituisci il suo oggetto. Altrimenti, restituisci null.
+  return selectedMovie || null;
+}
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
